@@ -1,0 +1,33 @@
+body{
+    margin:auto;
+    background:bisque;
+    width:100%
+    height:100%;
+}
+
+p{
+    color:pink;
+
+}
+
+img{
+    max-width:300px;
+    max-height:300px;
+}
+
+.shapeborder{
+    border:1px solid black;
+}
+
+.circle{
+    border-radius:50%;
+}
+
+#firstCircle{
+    background-color:light-blue;
+    width:400px;
+    height:400px;
+    position:relative;
+    margin-left: 41%;
+    margin-top: 28%;
+}

@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Albums</title>
+    <link rel="stylesheet" href="/css/style.css">
+</head>
+<body>
+<h1>Welcome to cool albums xD</h1>
+
+<div th:each="album : ${albumsAttribute}">
+    <h2 th:text="${album.title}">Title</h2>
+    <ul>
+        <li th:text="${album.artist}">artist</li>
+        <li th:text="${album.songCount}+': Amount of Songs'">songCount</li>
+        <li th:text="${album.length} + ': Seconds Long'">length</li>
+        <img th:src="${album.imageUrl}" >
+    </ul>
+
+
+</div>
+</body>
+</html>
