@@ -17,6 +17,11 @@ dependencies {
 	implementation 'org.springframework.boot:spring-boot-starter-web'
 	developmentOnly 'org.springframework.boot:spring-boot-devtools'
 	testImplementation 'org.springframework.boot:spring-boot-starter-test'
+	compile 'org.springframework.boot:spring-boot-starter-data-jpa'
+	//JPA's job is connecting any java app with any storage solution
+	//Write methods like `save`, `update`,`delete`,-> tells this to us and to java libraries
+	runtimeOnly('org.postgresql:postgresql')
+	//loading connection to postgres
 }
 
 test {

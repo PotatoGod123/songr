@@ -6,6 +6,13 @@
     <link rel="stylesheet" href="/css/style.css">
 </head>
 <body>
+<header>
+    <nav>
+        <ul>
+            <li><a href="/albums/addAlbum">Add an Album!</a></li>
+        </ul>
+    </nav>
+</header>
 <h1>Welcome to cool albums xD</h1>
 
 <div th:each="album : ${albumsAttribute}">
@@ -15,9 +22,11 @@
         <li th:text="${album.songCount}+': Amount of Songs'">songCount</li>
         <li th:text="${album.length} + ': Seconds Long'">length</li>
         <img th:src="${album.imageUrl}" >
+
     </ul>
-
-
+    <form th:action="'/albums/' + ${album.id} + '?_method=delete'" method="POST">
+        <button type="submit" value="deleteAlbum">Delete this album!</button>
+    </form>
 </div>
 </body>
 </html>
