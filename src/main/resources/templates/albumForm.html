@@ -3,6 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <title>Form Album</title>
+    <link rel="stylesheet" href="/css/style.css">
 </head>
 <body>
 <header>
@@ -28,10 +29,28 @@
                 <label for="imageUrl">The URL of the image cover for your album:  </label>
                 <input type="text" name="imageUrl" required>
                 <br>
-                <button type="submit" value="newAlbum">Submit</button>
+                <button type="submit" value="newAlbum">Submit New Album!</button>
             </form>
         </fieldset>
-
+        <fieldset>
+            <form action="/albums/addSong" method="POST">
+                <legend> Add a song to an existing album!!!</legend>
+                <label for="title">Title</label>
+                <input name="title" type="text" required>
+                <label for="lengths">Length of song in Seconds!</label>
+                <input name="lengths" type="number" required>
+                <label for="trackNumber">Track #</label>
+                <input name="trackNumber" type="number" required>
+                <select name="id">
+                    <option th:each="album:${albumsAttribute}"
+                            th:value="${album.id}"
+                            th:text="${album.title}"
+                    ></option>
+                </select>
+                <br>
+                <button type="submit" value="newSong">Submit New Song!</button>
+            </form>
+        </fieldset>
     </div>
 </main>
 </body>

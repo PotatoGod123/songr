@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Album Details</title>
+    <link rel="stylesheet" href="/css/style.css">
+</head>
+<body>
+<header>
+    <nav>
+        <ul>
+            <li><a href="/albums">Albums!</a></li>
+        </ul>
+    </nav>
+</header>
+<main>
+    <p>hello</p>
+      <div >
+          <h2 th:text="${album.title}">Title</h2>
+<!--          <form action="/albums/albumDetails" method="GET">-->
+<!--              <input hidden th:value="${album.id}" name="id">-->
+<!--              <button type="submit" value="lookAtInfo">Look Full details!</button>-->
+<!--          </form>-->
+          <ul>
+              <h3 th:text="${album.artist}">artist</h3>
+              <h3 th:text="'Amount of Songs: '+${album.songCount}">songCount</h3>
+              <h3 th:text="${album.length} + ': Seconds Long'">length</h3>
+              <img th:src="${album.imageUrl}" >
+          </ul>
+          <ol>
+            <div th:each="song:${album.songs}">
+                <h2 th:text="${song.title}"></h2>
+                <h4 th:text="${song.length}"></h4>
+                <h4 th:text="${song.trackNumber}"></h4>
+            </div>
+          </ol>
+          <form th:action="'/albums/' + ${album.id} + '?_method=delete'" method="POST">
+              <button type="submit" value="deleteAlbum">Delete this album!</button>
+          </form>
+      </div>
+</main>
+</body>
+</html>

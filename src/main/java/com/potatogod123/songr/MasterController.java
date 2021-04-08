@@ -54,6 +54,8 @@ public class MasterController {
 
     @GetMapping("/albums/addAlbum")
     public String addAlbum(Model m){
+            List<Album> albums = albumRepository.findAll();
+            m.addAttribute("albumsAttribute",albums);
 
         return "albumForm.html";
     }
@@ -76,5 +78,7 @@ public class MasterController {
         albumRepository.deleteById(id);
         return new RedirectView("/albums");
     }
+
+
 
 }
